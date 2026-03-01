@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}{{ level.name }}{% endblock %}
+{% block content %}
+<h1>{{ level.name }}</h1>
+<p>{{ level.description }}</p>
+
+<div class="level-layout">
+    <div class="field-panel">
+        <div
+            id="grid"
+            class="grid"
+            data-width="{{ level.width }}"
+            data-height="{{ level.height }}"
+            data-start='{{ level.start | tojson }}'
+            data-finish='{{ level.finish | tojson }}'
+            data-obstacles='{{ level.obstacles | tojson }}'
+        ></div>
+    </div>
+
+    <div class="code-panel">
+        <p>Доступные команды: {% for c in level.allowed_commands %}<code>{{ c }}()</code> {% endfor %}</p>
+        <textarea id="code" rows="12" placeholder="right()\nright()"></textarea>
+        <button id="run-btn" class="btn">Выполнить код</button>
+        <div id="result"></div>
+        <p>
+            Лучшие звёзды:
+            {{ (progress.completion_star + progress.time_star + progress.code_star) if progress else 0 }}/3
+        </p>
+    </div>
+</div>
+
+<script>
+window.LEVEL_ID = {{ level.id }};
+</script>
+<script src="{{ url_for('static', filename='level.js') }}"></script>
+{% endblock %}

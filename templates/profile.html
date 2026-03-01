@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Профиль{% endblock %}
+{% block content %}
+<h1>Профиль: {{ g.user['username'] }}</h1>
+<p>Всего звёзд: <strong>{{ g.user['total_stars'] }}</strong></p>
+<table>
+    <thead>
+        <tr><th>Уровень</th><th>Прохождение</th><th>Время</th><th>Код</th><th>Итого</th></tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+        <tr>
+            <td>{{ row.level_id }}</td>
+            <td>{{ row.completion_star }}</td>
+            <td>{{ row.time_star }}</td>
+            <td>{{ row.code_star }}</td>
+            <td>{{ row.completion_star + row.time_star + row.code_star }}</td>
+        </tr>
+    {% else %}
+        <tr><td colspan="5">Пока нет прогресса по уровням.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
