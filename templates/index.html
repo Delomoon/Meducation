@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<h1>Уровни</h1>
+<div class="levels-row">
+    {% for level in levels %}
+        {% set p = progress_map.get(level.id) %}
+        {% set earned = (p.completion_star + p.time_star + p.code_star) if p else 0 %}
+        <div class="level-card {% if level.id not in unlocked %}locked{% endif %}">
+            <h3>{{ level.name }}</h3>
+            <p>{{ level.description }}</p>
+            <p>Звёзды: {{ earned }}/3</p>
+            {% if level.id in unlocked %}
+                <a class="btn" href="{{ url_for('level_page', level_id=level.id) }}">Открыть</a>
+            {% else %}
+                <span class="lock-text">🔒 Пройдите предыдущий уровень</span>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

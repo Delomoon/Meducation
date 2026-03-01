@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}CodeStars{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-left">
+            <div class="logo">⭐</div>
+            <span class="brand">CodeStars</span>
+        </div>
+
+        <nav class="header-center">
+            <a href="{{ url_for('index') }}">главная</a>
+            <a href="{{ url_for('profile') if g.user else url_for('login') }}">профиль</a>
+            <a href="{{ url_for('help_page') }}">помощь</a>
+        </nav>
+
+        <div class="header-right">
+            <span class="stars">⭐ {{ header_stars }}</span>
+            {% if g.user %}
+                <span>👤</span>
+                <span>{{ g.user['username'] }}</span>
+                <a href="{{ url_for('logout') }}">выйти</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">войти</a>
+                <a href="{{ url_for('register') }}">регистрация</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="content">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}<li>{{ message }}</li>{% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
