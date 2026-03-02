@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import datetime
 import re
 import sqlite3
 from functools import wraps
@@ -55,6 +56,7 @@ def init_db() -> None:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
             password_hash TEXT NOT NULL,
+            regdata TEXT NOT NULL,
             total_stars INTEGER NOT NULL DEFAULT 0
         );
 
@@ -181,8 +183,8 @@ def register():
         db = get_db()
         try:
             db.execute(
-                "INSERT INTO users(username, password_hash) VALUES(?, ?)",
-                (username, generate_password_hash(password)),
+                "INSERT INTO users(username, password_hash, regdata) VALUES(?, ?, ?)",
+                (username, generate_password_hash(password), datetime.now().strftime('%d.%m.%Y %H:%M')),
             )
             db.commit()
         except sqlite3.IntegrityError:
