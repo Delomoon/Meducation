@@ -1,14 +1,27 @@
 .auth-form {
-    max-width: 340px;
-    background: white;
+    width: 300px;
+    margin: 50px auto;
     padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .auth-form input {
-     width: 100%; 
-     padding: 8px; 
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #d9deea;
+    border-radius: 6px;
+    margin-bottom: 5%;
+}
+
+.auth-form button {
+    width: 95%;
+    background: #3b59f5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 5%;
 }

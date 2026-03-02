@@ -18,7 +18,17 @@ header {
     gap: 5px;
 }
 
-.header-center a, .header-right a { color: white; text-decoration: none; }
+.header-center a, .header-right a { 
+    color: white;
+    text-decoration: none;
+    font-family: "Montserrat";
+    font-weight: 500;
+}
+
+.header-center a:hover, .header-right a:hover { 
+    color: #cccccc;
+    scale: 1.05;
+}
 .content { padding: 20px; }
 .logo { font-size: 22px; }
 
@@ -40,4 +50,8 @@ header {
 
 .logo {
     font-size: 36px;
+}
+
+.stars {
+    user-select: none;
 }

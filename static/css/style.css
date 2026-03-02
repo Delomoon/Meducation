@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bpmf+Huninn&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('_header.css');
 @import url('_level.css');
 @import url('_auth.css');
 @import url('_user-stats.css');
+@import url('_animation.css');
 
 body {
     margin: 0;
