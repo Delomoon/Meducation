@@ -3,8 +3,9 @@
 {% block content %}
 <form class="auth-form" method="post">
     <h2>Вход</h2>
-    <label>Имя пользователя <input name="username" required /></label>
-    <label>Пароль <input type="password" name="password" required /></label>
+    <label align="left">Имя пользователя <input name="username" required /></label>
+    <label align="left">Пароль <input type="password" name="password" required /></label>
     <button type="submit">Войти</button>
+    <a href="/register" style="text-decoration: none; color: #283785;">Нет аккаунта? Зарегистрироваться</a>
 </form>
 {% endblock %}

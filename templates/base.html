@@ -23,7 +23,7 @@
             <span class="stars">⭐ {{ header_stars }}</span>
             {% if g.user %}
                 <i class="fa-solid fa-circle-user"></i>
-                <span>{{ g.user['username'] }}</span>
+                <a href="{{ url_for('profile') }}">{{ g.user['username'] }}</a>
                 <a href="{{ url_for('logout') }}">выйти</a>
             {% else %}
                 <a href="{{ url_for('login') }}">Войти</a>
