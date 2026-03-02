@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Bpmf+Huninn&display=swap');
+@import url('_header.css');
+@import url('_level.css');
+@import url('_auth.css');
+@import url('_user-stats.css');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f7f8fc;
+}
+
+.grid {
+    display: grid;
+    gap: 4px;
+    width: fit-content;
+}
+
+.cell {
+    width: 64px;
+    height: 64px;
+    border: 1px solid #d9deea;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+
+.cell.finish { background: #d8f9d7; }
+.cell.obstacle { background: #fdd7d7; }
+
+textarea {
+    width: 100%;
+    font-family: monospace;
+}
+
+.flashes {
+    list-style: none;
+    padding: 0;
+}
+.flashes li {
+    background: #fff5cc;
+    border: 1px solid #eed68f;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+

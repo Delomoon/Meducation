@@ -1,0 +1,14 @@
+.auth-form {
+    max-width: 340px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.auth-form input {
+     width: 100%; 
+     padding: 8px; 
+}

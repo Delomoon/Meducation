@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: #20253a;
+    color: white;
+}
+
+.header-left, .header-center, .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-left {
+    user-select: none;
+    gap: 5px;
+}
+
+.header-center a, .header-right a { color: white; text-decoration: none; }
+.content { padding: 20px; }
+.logo { font-size: 22px; }
+
+.brand {
+    font-family: "Bpmf Huninn", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+}
+
+.text-logo {
+    display: block;
+}
+
+.tagline {
+    font-size: 14px;
+    color: #a0a0a0;
+}
+
+.logo {
+    font-size: 36px;
+}
